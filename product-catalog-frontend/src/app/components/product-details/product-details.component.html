@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Product {{product.code}} Details</h2> 
+
+  <hr/>
+  <div *ngIf="product">
+    <div>
+      <label><b>Code: </b></label> {{product.code}}
+    </div>
+    <div>
+      <label><b>Price: </b></label> {{product.price}}
+    </div>
+    <div>
+      <label><b>Description: </b></label> {{product.description}}
+    </div>  
+    <div>
+      <label><b>Detailed Description: </b></label> {{product.detailed_description}}
+    </div> 
+  </div>
+  
+  <br>
+  <br>
+  <button (click)="list()" class="btn btn-default">Cancel</button><br>
+  
+</div>

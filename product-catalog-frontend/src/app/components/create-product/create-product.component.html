@@ -1,0 +1,36 @@
+<div class="container">
+  <h3>Create Product</h3>
+  <div class="panel-body">
+  <div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Code</label>
+        <input type="text" class="form-control" id="code" required [(ngModel)]="product.code" name="code">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Description</label>
+        <input type="text" class="form-control" id="lastName" required [(ngModel)]="product.description" name="lastName">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Price</label>
+        <input type="number" class="form-control" id="emailId" required [(ngModel)]="product.price" name="emailId">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Detailed Description</label>
+        <textarea  type="text-area" class="form-control" id="emailId" required [(ngModel)]="product.detailed_description" name="emailId"></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Save</button>
+      <button type="button" (click)="gotoList()" class="btn btn-default">Cancel</button>
+    </form>
+  </div>
+  
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+    <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+  </div>
+  </div>
+</div>

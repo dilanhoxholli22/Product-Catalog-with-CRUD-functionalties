@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Product List</h2>
+    </div>
+    <div class="search-div">
+        <!-- <button mat-raised-button (click)="onCreate()"> -->
+          <!-- <mat-icon>add</mat-icon>Create
+        </button> -->
+       
+        
+         
+      </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <input type="text" size="20"  placeholder="Search Here" [(ngModel)]="searchText">
+        
+        <button (click)="saveProduct()" type="button" class="btn btn-default btn-lg">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add new
+        </button>
+    </div>
+    <!-- <button type="button" ngbAutofocus class="btn btn-danger"
+      (click)="modal.close('Ok click')">Ok</button> -->
+        
+      <table class="table table-borded">
+        <thead>
+          <tr>
+            <th  (click)="sort('code')">code&nbsp;<i class="fa fa-sort"></i></th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products | orderBy:key:reverse |filter:searchText">
+            <td>{{product.code}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td> <button mwlConfirmationPopover [popoverTitle]="popTitle"  [popoverMessage]="popMessage" placement="left" (confirm)="deleteProduct(product.id)" (cancel)="CancelClicked=true" type="button" class="btn btn-default" aria-label="Left Align">
+              <span class="fa fa-trash-o fa-lg" aria-hidden="true"></span>
+              </button>
+                <button (click)="productDetails(product.id)" class="btn btn-default" style="margin-left: 10px"><i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                <button (click)="editProduct(product.id)" class="btn btn-edit" style="margin-left: 10px"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+</div>
